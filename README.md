@@ -104,10 +104,7 @@ Temperature and power can be converted by (high bit * 256 + low bit)/100[^footno
 
 |% Draw time-domain signal diagram<br>x1=1:30000;%30000 indicates the number of points to draw, the maximum is 30020<br>x1=x1/1e6*3192/2;%3192 is the guided wave velocity<br>y1=data_e(1,:);%First set of signals<br>y2=data_e(2,:);%Second set of signals|
 |---|
-|Figure 4 Example of MATLAB Signal Conversion|
-Figure 5 Time-Domain Signal Analysis of Monitoring Node 2 (0-3m, 26℃)
 
-(Note: The original image content is retained as is)
 
 The distance between D9 and monitoring node 2 is about 1.5m. Based on this position information, the 0-3m signal of monitoring node 2 is selected for analysis. When the temperature is 26℃, the typical time-domain signal analysis is shown in Figure 5. Within this range, excitation crosstalk, W3, iron-cobalt alloy strips, secondary reflection of W3, and echo signals of D9 can be clearly observed, and the signal quality is good.
 
