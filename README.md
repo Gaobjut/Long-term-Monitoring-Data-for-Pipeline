@@ -2,11 +2,10 @@
 guided wave data
 # README
 
-# 1. Long-Term Pipeline Monitoring Data
 
-## 1.1 Data Source
+## 1 Data Source
 
-### 0.1 Pipeline Description
+### 1.1 Pipeline Description
 
 Experimental Object: A complex pipeline in an outdoor environment with multiple types of defects. The pipeline consists of two straight pipe sections and a 90-degree right-angle elbow welded in between:
 
@@ -14,7 +13,7 @@ Experimental Object: A complex pipeline in an outdoor environment with multiple 
 
 - Pipe 2: 10 meters long, with an inner diameter of 150mm and a wall thickness of 6mm.
 
-### 0.2 Defect Description
+### 1.2 Defect Description
 
 In the initial state, the experimental pipeline has 5 welds (W1-W5), 15 iron-cobalt alloy strips, and 15 defects (D1-D15). Among them, D1-D4 are crack defects, D5-D8 are groove defects, D9-D12 are three-hole defects, and D13-D15 are uniform thinning defects. The defect sizes are shown in Table 1. The on-site monitoring scene and the layout of monitoring nodes are shown in Figure 2 [1].
 
@@ -26,11 +25,8 @@ Table 1
 |D9-D12|Three-Hole Defect|Φ10|
 |D13-D15|Uniform Thinning Defect|50|
 
-The main research object is the three-hole defect D9. The distance between D9 and monitoring node 2 is about 1.5m. Each hole of D9 has a diameter of 10mm, a center distance of 12mm, a maximum depth of 3mm, and it is a non-through hole. As of March 5, 2026, D9 has been expanded seven times in total. The first expansion method was drilling a hole at the center of the three-hole defect with a maximum depth of 2.7mm; the second expansion method was grinding at the junction of the two right holes with a maximum depth of 3.1mm; the third expansion continued grinding at this position to a maximum depth of 3.5mm; the fourth expansion ground the two right holes and their junction to a maximum depth of 4.1mm. The fifth expansion continued grinding the junction of the two right holes to a maximum depth of 4.4mm. The sixth expansion continued grinding the junction of the two right holes to a maximum depth of 4.6mm. The seventh expansion continued grinding the junction of the two right holes to a maximum depth of 5mm. The real-scene images of the first 5 expansion processes of D9 are shown in the figure below.
+The main research object is the three-hole defect D9. The distance between D9 and monitoring node 2 is about 1.5m. Each hole of D9 has a diameter of 10mm, a center distance of 12mm, a maximum depth of 3mm, and it is a non-through hole. As of March 5, 2026, D9 has been expanded seven times in total. The first expansion method was drilling a hole at the center of the three-hole defect with a maximum depth of 2.7mm; the second expansion method was grinding at the junction of the two right holes with a maximum depth of 3.1mm; the third expansion continued grinding at this position to a maximum depth of 3.5mm; the fourth expansion ground the two right holes and their junction to a maximum depth of 4.1mm. The fifth expansion continued grinding the junction of the two right holes to a maximum depth of 4.4mm. The sixth expansion continued grinding the junction of the two right holes to a maximum depth of 4.6mm. The seventh expansion continued grinding the junction of the two right holes to a maximum depth of 5mm. The real-scene images of the first 5 expansion processes of D9 are shown in the figure 1.
 
-Fig1.D9 Expansion Process
-
-(Note: The original image content is retained as is)
 
 |Defect Type|Expansion Time|Defect Size|
 |---|---|---|
@@ -43,7 +39,7 @@ Fig1.D9 Expansion Process
 |Weld Defect (Before Expansion 2)|2024.10.21|Radial length 23mm, axial length 10mm, maximum depth 3mm|
 |Weld Defect (1st Expansion)|2025.8.6|Radial length 28mm, axial length 13mm, maximum depth 3.6mm|
 |Weld Defect (2nd Expansion)|2026.2.24|Radial length 32mm, axial length 15mm, maximum depth 3.9mm|
-### 0.3 Data Acquisition System
+### 1.3 Data Acquisition System
 
 Two monitoring nodes are deployed on the pipeline. Monitoring Node 1 is deployed 2.3m away from the elbow weld, and Monitoring Node 2 is deployed 10.5m away, meaning the two nodes are 8.2m apart. The dual-node layout can cover a larger monitoring range and reduce monitoring blind areas. Both monitoring nodes are equipped with clamp-on MsT sensors to excite/receive T(0,1) mode guided waves. The experiment uses a self-excitation and self-reception mode, with an excitation frequency of 40kHz, an excitation signal of square wave, and a cycle number of 1. To suppress random noise, each collected signal is averaged 100 times. The sampling frequency is 1MHz, and the sampling interval is 4 hours. The two monitoring nodes operate independently without interfering with each other. The positions of the monitoring nodes and defects are shown in the figure below:
 
@@ -51,9 +47,9 @@ Figure 2 Schematic Diagram of Monitoring Nodes and Defect Positions
 
 (Note: The original image content is retained as is)
 
-## 1.2 Introduction to Data Packages
+## 2 Introduction to Data Packages
 
-### 1. Data Files
+### 2.1 Data Files
 
 The time monitoring range of Node 1 data is from October 22, 2024 to February 10, 2026. The time monitoring range of Node 2 data is from November 10, 2023 to March 23, 2025.
 
@@ -68,13 +64,13 @@ The file structure of the dataset is shown in Table 3. Among them, Data Package_
 |||4th Defect Expansion_Node 2|265|
 |Data Package_Node 1|Folder|1st Defect Expansion_Node 1|1310|
 |||2nd Defect Expansion_Node 1|927|
-### 2. File Naming Rules
+### 2.2 File Naming Rules
 
 The original data files are in txt format, and the file name indicates the time when the data was collected.
 
 For example: 20241022131200.txt indicates that the data was collected at 13:12:00 on October 22, 2024.
 
-### 3. Data Field Description
+### 2.3 Data Field Description
 
 Each txt document contains two sets of array data, both of which are character-type data. The first "data" mainly stores guided wave signals, and the second "otherData" mainly stores equipment information, stored in high and low 8-bit format. The detailed description is as follows:
 
@@ -90,7 +86,7 @@ Figure 3 Example of Temperature Data
 
 Temperature and power can be converted by (high bit * 256 + low bit)/100[^footnote1]. Taking the temperature in Figure 3 as an example: (11, 240) is processed to get: (11 * 256 + 240) / 100 = 30.56℃
 
-## 1.3 Data Processing Suggestions (Taking MATLAB as an Example)
+## 3 Data Processing Suggestions (Taking MATLAB as an Example)
 
 1. First, read all .txt monitoring files in the specified folder, and complete splitting and character format conversion;
 
